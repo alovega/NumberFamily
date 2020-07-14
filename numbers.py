@@ -12,13 +12,14 @@ class NumberFamily(object):
 		self.a = a
 		self.b = b
 
-	# code to generate a list of even and odd numbers
+	# code to generate a list of even or odd numbers
 	# depending on the input given
 
 	def generate_list(self):
 		"""
+		function that generates all possible photos that can be taken
 		:param self:
-		:return: returns an integer of all possible array combinations
+		:return: returns an length of all possible array combinations/ all possible photos that can be taken
 		"""
 
 		generated_list = []
@@ -40,7 +41,7 @@ class NumberFamily(object):
 		for i in generated_list:
 			x = NumberFamily.subsequences(NumberFamily.generate_even_or_odd_list(i), 0, [])
 
-		return x
+		return len(x)
 
 	# code to return all possible
 	# subsequences of length 2 or greater for given array using
@@ -51,6 +52,7 @@ class NumberFamily(object):
 	@staticmethod
 	def subsequences(arr, index, subarr, a = []):
 		"""
+		generates the possible combination of photos taken depending on given data
 		:param arr: the array to use while generating sub arrays
 		:param index: the starting index
 		:param subarr: holder for an empty list of sub arrays
@@ -79,6 +81,11 @@ class NumberFamily(object):
 
 	@staticmethod
 	def generate_even_or_odd_list(n):
+		"""
+		generates the list entailing the highest possible number of photos that a number can produce
+		:param n: given positive integer
+		:return: list of possible photo combination
+		"""
 		if n % 2 == 0:
 			x = [i for i in range(n) if i % 2 !=0]
 			x.append(n)
@@ -88,3 +95,5 @@ class NumberFamily(object):
 			x.append(n)
 			return x
 
+
+print(NumberFamily(2,3).generate_list())
