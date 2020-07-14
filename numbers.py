@@ -96,4 +96,5 @@ class NumberFamily(object):
 			return x
 
 
-print(NumberFamily(2,3).generate_list())
+print(NumberFamily(2, 3).generate_list())
+
