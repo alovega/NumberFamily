@@ -23,24 +23,29 @@ class NumberFamily(object):
 		"""
 
 		generated_list = []
-		if self.a:
+
+		if self.a and (0 < self.a <= 51):
 			i = 1
 			n = 2
 			while i <= self.a:
 				generated_list.append(n)
 				n += 2
 				i += 1
-		if self.b:
+		else:
+			return "The input given is out of bounds"
+		if self.b and (0 < self.b <= 51):
 			j = 1
 			n = 1
 			while j <= self.b:
 				generated_list.append(n)
 				n += 2
 				j += 1
+		else:
+			return "The input given is out of bounds"
 
 		for i in generated_list:
 			x = NumberFamily.subsequences(NumberFamily.generate_even_or_odd_list(i), 0, [])
-
+		# print (x)
 		return len(x)
 
 	# code to return all possible
@@ -66,7 +71,7 @@ class NumberFamily(object):
 			# empty subsequence
 			if len(subarr) >= 2:
 				if not all(n % 2 == 1 for n in subarr) and not all(n % 2 == 0 for n in subarr):
-					a.append(subarr)
+					a.append(subarr[::-1])
 
 		else:
 			# Subsequence without including
@@ -96,5 +101,5 @@ class NumberFamily(object):
 			return x
 
 
-print(NumberFamily(2, 3).generate_list())
+print(NumberFamily(1, 1).generate_list())
 

@@ -16,6 +16,12 @@ class NumberFamilyTest(TestCase):
 		self.assertIsInstance(value, list)
 		self.assertEqual(value, [1, 3, 4])
 
+	def test_generate_subsequences_input(self):
+		self.input = NumberFamily(52,52)
+		value = self.input.generate_list()
+		self.assertEqual(value, "The input given is out of bounds")
+
 	def test_generate_subsequences(self):
 		value = self.input.subsequences([9, 8, 6, 4, 2], 0, [])
 		self.assertIsInstance(value, list)
+
