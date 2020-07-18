@@ -45,7 +45,7 @@ class NumberFamily(object):
 
 		for i in generated_list:
 			x = NumberFamily.subsequences(NumberFamily.generate_even_or_odd_list(i, generated_list), 0, [])
-		print (x)
+		# print (x)
 		return len(x)
 
 	# code to return all possible
@@ -102,5 +102,5 @@ class NumberFamily(object):
 			return x
 
 
-print(NumberFamily(4, 4).generate_list())
+print(NumberFamily(4, 1).generate_list())
 
