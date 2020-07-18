@@ -44,8 +44,8 @@ class NumberFamily(object):
 			return "The input given is out of bounds"
 
 		for i in generated_list:
-			x = NumberFamily.subsequences(NumberFamily.generate_even_or_odd_list(i), 0, [])
-		# print (x)
+			x = NumberFamily.subsequences(NumberFamily.generate_even_or_odd_list(i, generated_list), 0, [])
+		print (x)
 		return len(x)
 
 	# code to return all possible
@@ -85,21 +85,22 @@ class NumberFamily(object):
 		return a
 
 	@staticmethod
-	def generate_even_or_odd_list(n):
+	def generate_even_or_odd_list(n, generated_list):
 		"""
 		generates the list entailing the highest possible number of photos that a number can produce
+		:param generated_list: the list of all possible photos that can be taken
 		:param n: given positive integer
 		:return: list of possible photo combination
 		"""
 		if n % 2 == 0:
-			x = [i for i in range(n) if i % 2 !=0]
+			x = [i for i in range(n) if i % 2 !=0 and i in generated_list]
 			x.append(n)
 			return x
 		else:
-			x = [i for i in range(1, n) if i % 2 == 0]
+			x = [i for i in range(1, n) if i % 2 == 0 and i in generated_list]
 			x.append(n)
 			return x
 
 
-print(NumberFamily(1, 1).generate_list())
+print(NumberFamily(4, 4).generate_list())
 
